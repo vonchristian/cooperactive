@@ -1,0 +1,28 @@
+<h2>Show amount</h2>
+
+<ul>
+
+  <li>
+    <strong>Account:</strong>
+    <%= @amount.account_id %>
+  </li>
+
+  <li>
+    <strong>Entry:</strong>
+    <%= @amount.entry_id %>
+  </li>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @amount.type %>
+  </li>
+
+  <li>
+    <strong>Amount:</strong>
+    <%= @amount.amount %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: amount_path(@conn, :edit, @amount) %>
+<%= link "Back", to: amount_path(@conn, :index) %>

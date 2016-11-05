@@ -1,0 +1,32 @@
+<h2>Listing amounts</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Account</th>
+      <th>Entry</th>
+      <th>Type</th>
+      <th>Amount</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for amount <- @amounts do %>
+    <tr>
+      <td><%= amount.account_id %></td>
+      <td><%= amount.entry_id %></td>
+      <td><%= amount.type %></td>
+      <td><%= amount.amount %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: amount_path(@conn, :show, amount), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: amount_path(@conn, :edit, amount), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: amount_path(@conn, :delete, amount), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New amount", to: amount_path(@conn, :new) %>

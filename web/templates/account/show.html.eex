@@ -1,0 +1,33 @@
+<h2>Show account</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @account.name %>
+  </li>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @account.type %>
+  </li>
+
+  <li>
+    <strong>Code:</strong>
+    <%= @account.code %>
+  </li>
+
+  <li>
+    <strong>Contra:</strong>
+    <%= @account.contra %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @account.description %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: account_path(@conn, :edit, @account) %>
+<%= link "Back", to: account_path(@conn, :index) %>

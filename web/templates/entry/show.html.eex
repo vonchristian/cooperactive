@@ -1,0 +1,23 @@
+<h2>Show entry</h2>
+
+<ul>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @entry.description %>
+  </li>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @entry.date %>
+  </li>
+
+  <li>
+    <strong>Reference number:</strong>
+    <%= @entry.reference_number %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: entry_path(@conn, :edit, @entry) %>
+<%= link "Back", to: entry_path(@conn, :index) %>

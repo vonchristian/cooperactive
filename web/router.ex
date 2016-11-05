@@ -17,6 +17,9 @@ defmodule Cooperactive.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/accounts", AccountController
+    resources "/entries", EntryController
+    resources "/amounts", AmountController
   end
 
   # Other scopes may use custom stacks.

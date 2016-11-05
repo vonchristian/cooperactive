@@ -1,0 +1,78 @@
+%align-center-flex {
+  align-items: center;
+  display: flex;
+}
+
+.edit-comment {
+  font-size: 13px;
+  color: 999;
+  margin-left: 5px;
+}
+
+.comment-loading {
+  @include animation(loading-spinner 0.6s infinite linear);
+  @include border-style(solid);
+  @include border-width(0.2em);
+  @include hide-text();
+  @include margin(null auto);
+  @include size(2em);
+  border-color: $base-border-color;
+  border-left-color: $dark-blue;
+  border-radius: 50%;
+  text-transform: uppercase;
+}
+
+.comments-list {
+  border-top: 5px solid $light-gray;
+  list-style-type: none;
+  margin-top: $base-spacing;
+  padding-top: $base-spacing;
+}
+
+.comment-body {
+  position: relative;
+}
+
+.comment {
+  @include padding($base-spacing null);
+  border-bottom: $base-border;
+
+  &:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.avatar-rounded {
+  @include size($rounded-avatar-size);
+  border-radius: 50%;
+  margin-right: $tiny-spacing / 2;
+}
+
+.author-information {
+  @extend %align-center-flex;
+}
+
+.comment-information {
+  @extend %align-center-flex;
+  justify-content: space-between;
+  margin-bottom: $tiny-spacing / 2;
+}
+
+.comment-new, .comment-edit {
+  border-top: $base-border;
+  padding-top: $base-spacing;
+
+  input[type="submit"] {
+    width: 100%;
+  }
+}
+
+.comment-textarea {
+  margin-bottom: $small-spacing;
+  min-height: 150px;
+}

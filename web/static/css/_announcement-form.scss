@@ -1,0 +1,29 @@
+.col-markdown {
+  textarea {
+    min-height: 400px;
+  }
+}
+
+.announcement-form__markdown {
+  h1 {
+    margin-top: 0;
+  }
+}
+
+.recipients-preview {
+  position: relative;
+
+  .interested-user-names {
+    @include position(absolute, 24px null null null);
+    background-color: $white;
+    border-radius: $base-border-radius;
+    border: $base-border;
+    box-shadow: 0 0 16px rgba($light-gray, 0.6);
+    color: $dark-gray;
+    display: none;
+    font-size: $small-font-size;
+    padding: $small-spacing;
+    width: 600px;
+    z-index: $z-index-subscribed-tooltip;
+  }
+}
