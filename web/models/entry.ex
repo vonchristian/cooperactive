@@ -21,10 +21,10 @@ defmodule Cooperactive.Entry do
     |> cast(params, [:description, :date, :reference_number])
     |> validate_required([:description, :date, :reference_number])
     |> cast_assoc(:amounts)
-    |> validate_debits_and_credits_are_equal
+    # |> validate_debits_and_credits_are_equal
   end
 
-  def validate_debits_and_credits_are_equal(changeset) do 
+  def validate_debits_and_credits_are_equal(changeset) do
     amounts = Ecto.Changeset.get_field(changeset, :amounts)
     amounts = Enum.group_by(amounts, fn(i) -> i.type end)
 
