@@ -11,23 +11,17 @@
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
-  <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
+<body class="hold-transition skin-black-light sidebar-mini">
+    <div class="wrapper">
+      <%= render "_header.html", conn: @conn %>
+      <%= render "_sidebar.html", conn: @conn %>
+    <div class="content-wrapper">
 
-      <%= render "_flashes.html", conn: @conn %>
-
-      <main role="main">
+      <section class="content">
+          <%= render "_flashes.html", conn: @conn %>
         <%= render @view_module, @view_template, assigns %>
-      </main>
-
+      </section>
+    </div>
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>

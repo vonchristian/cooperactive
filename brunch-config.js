@@ -1,28 +1,33 @@
-var bourbonPath = require("bourbon").includePaths[0];
-
 exports.config = {
+  // See http://brunch.io/#documentation for docs.
   files: {
     javascripts: {
       joinTo: "js/app.js"
     },
     stylesheets: {
-      joinTo: "css/app.css"
+      joinTo: "css/app.css",
+      order: {
+        after: ["web/static/css/app.scss"] // concat app.css last
+      }
     },
     templates: {
       joinTo: "js/app.js"
     }
   },
 
-  conventions: {
+conventions: {
     assets: /^(web\/static\/assets)/
   },
 
+// Phoenix paths configuration
   paths: {
+    // Dependencies and current project directories to watch
     watched: [
       "web/static",
       "test/static"
     ],
 
+// Where to compile files to
     public: "priv/static"
   },
 
@@ -30,18 +35,13 @@ exports.config = {
     babel: {
       ignore: [/web\/static\/vendor/]
     },
-    postcss: {
-      processors: [
-        require("autoprefixer")
-      ],
+    copycat: {
+      "fonts": ["node_modules/bootstrap-sass/assets/fonts/bootstrap"] // copy node_modules/bootstrap-sass/assets/fonts/bootstrap/* to priv/static/fonts/
     },
     sass: {
       options: {
-        includePaths: [
-          bourbonPath,
-          "./node_modules/bourbon-neat/app/assets/stylesheets",
-          "./node_modules/jquery-textcomplete/dist/",
-        ],
+        includePaths: ["node_modules/bootstrap-sass/assets/stylesheets"], // tell sass-brunch where to look for files to @import
+        precision: 8 // minimum precision required by bootstrap-sass
       }
     }
   },
@@ -54,24 +54,10 @@ exports.config = {
 
   npm: {
     enabled: true,
-    styles: {
-      "normalize.css": ['normalize.css']
-    },
-    globals: {
+    globals: { // bootstrap-sass' JavaScript requires both '$' and 'jQuery' in global scope
       $: 'jquery',
-      jQuery: 'jquery'
-    },
-    whitelist: [
-      "highlight.js",
-      "jquery",
-      "jquery-textcomplete",
-      "marked",
-      "mousetrap",
-      "normalize.css",
-      "phoenix",
-      "selectize",
-      "textarea-autogrow",
-      "turbolinks",
-    ]
+      jQuery: 'jquery',
+      bootstrap: 'bootstrap-sass' // require bootstrap-sass' JavaScript globally
+    }
   }
-};
+}

@@ -31,4 +31,4 @@
   </tbody>
 </table>
 
-<%= link "New account", to: account_path(@conn, :new), class: "button button-small" %>
+<%= link "New Account", to: account_path(@conn, :new), class: "btn btn-primary" %>

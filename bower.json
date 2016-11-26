@@ -1,0 +1,20 @@
+{
+  "name": "cooperactive",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Von Christian Halip <vc.halip@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/vonchristian/cooperactive",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "^4.7.0"
+  }
+}
