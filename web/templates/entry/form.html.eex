@@ -5,30 +5,17 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= label f, :description, class: "control-label" %>
-    <%= text_input f, :description, class: "form-control" %>
-    <%= error_tag f, :description %>
-  </div>
+ <%=input f, :description %>
 
-  <div class="form-group">
-    <%= label f, :date, class: "control-label" %>
-    <%= text_input f, :date, class: "form-control datepicker" %>
-    <%= error_tag f, :date %>
-  </div>
-
-  <div class="form-group">
-    <%= label f, :reference_number, class: "control-label" %>
-    <%= text_input f, :reference_number, class: "form-control" %>
-    <%= error_tag f, :reference_number %>
-  </div>
+  <%=input f, :date, as: :datepicker %>
+  <%= input f, :reference_number %>
   <%= inputs_for f, :amounts, fn i -> %>
   <div class="form-group">
     <%= label i, :amount, class: "control-label" %>
     <%= text_input i, :amount, class: "form-control" %>
     <%= label i, :type, class: "control-label", hidden: true %>
     <%= text_input i, :type, class: "form-control", hidden: true %>
-    
+
     <%=label i, :account_id %>
     <%= select i, :account_id, @accounts %>
   </div>

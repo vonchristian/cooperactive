@@ -51,6 +51,7 @@ defmodule Cooperactive.Web do
 
       import Cooperactive.Router.Helpers
       import Cooperactive.ErrorHelpers
+      import Cooperactive.InputHelpers
       import Cooperactive.Gettext
     end
   end

@@ -19,7 +19,7 @@ defmodule Cooperactive.Mixfile do
   def application do
     [mod: {Cooperactive, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :number]]
+                    :phoenix_ecto, :postgrex, :number, :calendar]]
   end
 
   # Specifies which paths to compile per environment.
@@ -39,6 +39,7 @@ defmodule Cooperactive.Mixfile do
      {:gettext, "~> 0.11"},
      {:number, "~> 0.4.2"},
      { :decimal, "~> 1.1.0" },
+     {:calendar, "~> 0.16.0"},
      {:cowboy, "~> 1.0"}]
   end
 

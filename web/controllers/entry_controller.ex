@@ -6,7 +6,10 @@ defmodule Cooperactive.EntryController do
 
 
   def index(conn, _params) do
-    entries = Repo.all from p in Entry, preload: [:amounts]
+   entries = Repo.all from p in Entry,
+           join: c in assoc(p, :amounts),
+           join: l in assoc(c, :account),
+           preload: [amounts: {c, account: l}]
     render(conn, "index.html", entries: entries)
   end
 
@@ -19,7 +22,7 @@ defmodule Cooperactive.EntryController do
   def create(conn, %{"entry" => entry_params}) do
      changeset = Entry.changeset(%Entry{}, entry_params)
       accounts = Repo.all(Cooperactive.Account) |> Enum.map(&{&1.name, &1.id})
-    case Repo.insert(changeset) do
+    case Repo.insert!(changeset) do
       {:ok, _amount} ->
         conn
         |> put_flash(:info, "Entry created successfully.")
